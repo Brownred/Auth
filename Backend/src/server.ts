@@ -10,7 +10,7 @@ if (!mongoURI) {
     throw new Error('lol :) MONGO_URI is not defined');
 }
 
-mongoose.connect(mongoURI);
+mongoose.connect(mongoURI).then(() => { console.log('connected to mongodb :)') }).catch((err) => { console.log("opps! :( ", err) });
 
 const app = express();
 
