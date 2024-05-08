@@ -3,7 +3,3 @@
     
 // };
 
-// export function test (req: Request, res: Response) {
-//     res.json({ message: 'Hello World!' });
-    
-}
