@@ -1,0 +1,14 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "typescript.updateImportsOnFileMove.enabled": "always", // Automatically update import paths when you rename or move a file in VS Code.
+    "typescript.preferences.quoteStyle": "single", // Use single quotes instead of double quotes for auto imports.
+    "typescript.preferences.importModuleSpecifier": "relative", // Use relative paths for auto imports.
+    "typescript.suggest.autoImports": true, // Enable auto suggestions for imports.
+    "prettier.semi": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+}
