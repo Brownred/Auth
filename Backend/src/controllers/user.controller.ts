@@ -1,5 +1,7 @@
-// export const test = (req: Request, res: Response) => {
-//     res.json({ message: 'Hello World!' });
-    
-// };
+import { Request, Response } from 'express';
+
+export const test = (req: Request, res: Response) => {
+    res.json({ message: 'Hello World!' });
+
+};
 
