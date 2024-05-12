@@ -9,5 +9,6 @@ export class CustomError extends Error {
 
 export const errorHandler = (statusCode: number, message: string) => {
     const error = new CustomError(statusCode, message);
+    console.log(message);
     return error;
 };

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-export default function SignUp() {
+export default function Login() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ export default function SignUp() {
     try{
       setLoading(true);
       setError(false);
-      const res = await fetch('/api/auth/signup', {
+      const res = await fetch("/api/auth/log-in", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -43,15 +43,14 @@ export default function SignUp() {
       {/* < SignUpCard /> */}
       <h1 className="text-3xl text-center font-semibold my-7">Login</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <input type="text" placeholder="Username" id="username" onChange={handleChange} className="bg-slate-100 p-3 rounded-lg" />
         <input type="email" placeholder="email" id="email" onChange={handleChange} className="bg-slate-100 p-3 rounded-lg" />
         <input type="password" placeholder="password" id="password" onChange={handleChange} className="bg-slate-100 p-3 rounded-lg" />
-        <button  disabled={loading} className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">{loading ? 'Loading...' : 'Sign Up'}</button>
+        <button  disabled={loading} className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">{loading ? 'Loading...' : 'Log in'}</button>
       </form>
       <div className="mt-5">
-        <p>Have an account? 
-          <Link to='/login'>
-          <span className="text-blue-500"> log in</span>
+        <p>Don't have an account? 
+          <Link to='/signup'>
+          <span className="text-blue-500"> Log in</span>
           </Link>
           </p>
       </div>

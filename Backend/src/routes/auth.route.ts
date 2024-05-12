@@ -4,8 +4,9 @@ import { login, signUp } from '../controllers/auth.controleler';
 
 const authRouter = express.Router();
 
+authRouter.post("/log-in", login);
+
 authRouter.post("/signup", signUp);
 
-authRouter.post("/login", login);
 
 export default authRouter;

@@ -22,11 +22,11 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
 };
 
 export const login = async (req: Request, res: Response, next: NextFunction) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
     try {
-        const validUser = await User.findOne({ username });
-        if (!validUser) return next(errorHandler(404, "User not found"));
+        const validUser = await User.findOne({ email });
+        if (!validUser) return next(errorHandler(404, " Haaa! User not found"));
         const validPassword = bcryptjs.compareSync(password, validUser.password);
         if (!validPassword) return next(errorHandler(401, "Wrong credentials"));
         if (!process.env.JWT_SECRET) return next(errorHandler(500, "Internal server error"));
@@ -36,4 +36,4 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
     } catch (error) {
         next(error);
     }
-}
+};
