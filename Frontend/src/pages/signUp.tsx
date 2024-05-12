@@ -1,13 +1,14 @@
 // import SignUpCard from "@/components/signUp/card";
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({...formData, [event.target.id]: event.target.value})
@@ -31,6 +32,7 @@ export default function SignUp() {
         setError(true);
         return
       }
+      navigate("/");
     } catch (error) {
       setLoading(false);
       setError(true);

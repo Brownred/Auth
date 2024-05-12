@@ -30,10 +30,10 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
         const validPassword = bcryptjs.compareSync(password, validUser.password);
         if (!validPassword) return next(errorHandler(401, "Wrong credentials"));
         if (!process.env.JWT_SECRET) return next(errorHandler(500, "Internal server error"));
-        const token = jwt.sign({ id: validUser._id?.toString(), name: validUser.username }, process.env.JWT_SECRET, { expiresIn: "2d" });
-        const { password: hashedPassword, __v, ...rest } = validUser;
-        res.cookie("accessToken", token, { httpOnly: true }).status(200).json(rest);
+        const token = jwt.sign({ id: validUser._id?.toString(), name: validUser.username }, process.env.JWT_SECRET);
+        const { password: hashedPassword, ...rest } = validUser.toObject();
+        res.cookie("accessToken", token, { httpOnly: true, maxAge: 2 * 24 * 60 * 60 * 1000 }).status(200).json(rest);
     } catch (error) {
-        next(error);
+        next(errorHandler(500, " Haaa! User not found"));
     }
 };
