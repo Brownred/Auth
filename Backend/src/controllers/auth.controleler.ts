@@ -26,6 +26,9 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
 
     try {
         const validUser = await User.findOne({ email });
+
+        // The errors that appear in this section is not shown in the console or in the fron end of the user mostly
+
         if (!validUser) return next(errorHandler(404, " Haaa! User not found"));
         const validPassword = bcryptjs.compareSync(password, validUser.password);
         if (!validPassword) return next(errorHandler(401, "Wrong credentials"));
