@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { signInFailure, signInStart, signInSuccess } from '../redux/user/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store'; 
+import Oath from '../components/Oath';
 
 
 export default function Login() {
@@ -49,8 +50,10 @@ export default function Login() {
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input type="email" placeholder="email" id="email" onChange={handleChange} className="bg-slate-100 p-3 rounded-lg" />
         <input type="password" placeholder="password" id="password" onChange={handleChange} className="bg-slate-100 p-3 rounded-lg" />
-        <button  disabled={loading} className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">{loading ? 'Loading...' : 'Log in'}</button>
+        <button disabled={loading} className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">{loading ? 'Loading...' : 'Log in'}</button>
+        <Oath />
       </form>
+      
       <div className="mt-5">
         <p>Don't have an account? 
           <Link to='/signup'>

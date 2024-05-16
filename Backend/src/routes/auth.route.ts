@@ -8,5 +8,7 @@ authRouter.post("/log-in", login);
 
 authRouter.post("/signup", signUp);
 
+authRouter.post("/google", google); //create a function inside auth controller
+
 
 export default authRouter;

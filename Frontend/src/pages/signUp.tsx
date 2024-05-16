@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Oath from '../components/Oath';
 
 
 export default function SignUp() {
@@ -48,8 +49,10 @@ export default function SignUp() {
         <input type="text" placeholder="Username" id="username" onChange={handleChange} className="bg-slate-100 p-3 rounded-lg" />
         <input type="email" placeholder="email" id="email" onChange={handleChange} className="bg-slate-100 p-3 rounded-lg" />
         <input type="password" placeholder="password" id="password" onChange={handleChange} className="bg-slate-100 p-3 rounded-lg" />
-        <button  disabled={loading} className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">{loading ? 'Loading...' : 'Sign Up'}</button>
+        <button disabled={loading} className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">{loading ? 'Loading...' : 'Sign Up'}</button>
+        <Oath />
       </form>
+      
       <div className="mt-5">
         <p>Have an account? 
           <Link to='/login'>
